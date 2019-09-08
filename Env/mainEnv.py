@@ -1,15 +1,22 @@
-import os
-import numpy as np
-import matplotlib.pyplot as plt
-import networkx as nx
 import time
 from Env.ICModel import ICModel
-import Approaches.Approach as ap
+from Approach import Approach
+import matplotlib.pyplot as plt
+
+
+def plot():
+    fig = plt.figure()
+    plt.plot()
+
 
 if __name__ == '__main__':
     IC = ICModel()
-    greedy = ap.Greedy(IC)
+    app = Approach(IC)
+    # start = time.time()
+    # app.greedy()
+    # print('\n'+str(time.time()-start))
+
     start = time.time()
-    greedy.simulate()
-    print(str(time.time()-start))
+    app.celf()
+    print('\n' + str(time.time() - start))
     # print(len(users), len(edges))

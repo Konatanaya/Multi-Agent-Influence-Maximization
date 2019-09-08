@@ -1,6 +1,6 @@
 import os
 import numpy as np
-import matplotlib.pyplot as plt
+
 import networkx as nx
 import time
 import Agents as ag
@@ -18,7 +18,7 @@ class ICModel(object):
                                  create_using=nx.DiGraph)
         return graph
 
-    def diffusion(self, original_users, times):
+    def diffusion(self, original_users, times, p=0.01):
         spread = []
         for i in range(times):
             print('\rTime step: %d' %(i), end='')
@@ -28,7 +28,7 @@ class ICModel(object):
                 for user in new_active:
                     np.random.seed(i)
                     for neighbor in self.G.neighbors(user):
-                        if np.random.uniform(0, 1) < self.G.edges[user, neighbor]['weight']:
+                        if np.random.uniform(0, 1) < p:
                             new_ones.append(neighbor)
                 new_active = list(set(new_ones) - set(already_active))
                 already_active += new_active
