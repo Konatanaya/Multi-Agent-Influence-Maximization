@@ -22,9 +22,6 @@ class UserAgent(object):
                 self.neighbors[id_number] = weight
 
 
-
-
-
-class LearningAgent(object):
-    def __init__(self):
-        self.id = 1
+class SystemAgent(object):
+    def __init__(self, id_number):
+        self.id_number = id_number

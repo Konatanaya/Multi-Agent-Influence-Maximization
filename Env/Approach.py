@@ -2,7 +2,7 @@ import numpy as np
 
 
 class Approach(object):
-    def __init__(self, model, t=10000, k=20, mode='IC'):
+    def __init__(self, model, t=100, k=5, mode='IC'):
         self.time_steps = t
         self.k = k
         self.model = model
